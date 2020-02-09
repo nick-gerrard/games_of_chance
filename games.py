@@ -62,12 +62,63 @@ def cho_han():
         print("You have to call even or odd!")
         cho_han()
 
+def deck_of_cards():
+    global money
+    bet = input("How much would you like to bet? ")
+    bet_int = int(bet)
+    if bet_int > money:
+        print("You don't have that much money to bet!")
+        deck_of_cards()
+    else: 
+        deck = []
+        for suit in range(1,5):
+            for card in range(1,14):
+                deck.append(card)
+#    print(deck)
+#    print(len(deck))
+        card_one_index = random.randint(1,len(deck))
+        card_one = deck.pop(card_one_index)
+        card_two_index = random.randint(1,len(deck))
+        card_two = deck.pop(card_two_index)
+        print("You got {0}, while the other guy got {1}".format(card_one, card_two))
+        if card_one > card_two:
+            money += bet_int
+            print("You now have {0} dollars!".format(money))
+            return money
+        elif card_one == card_two:
+            print("You tied! Nobody wins!")
+        else:
+            money -= bet_int
+            print("You now have {0} dollars!".format(money))
+            return money
 
 
+    
 #Call your game of chance functions here
 
+x =  "y"
+while x =="y":
+    x = input("Would you like to play a game? y or n? ")
+    if x == "y":
+        print("You have {0} money left...".format(money))
+        print("Which game?")
+        print("Heads or Tails [h/t], Cho Han [ch], or Cards [c]?")
+        selection = input()
+        if selection == "h/c":
+            heads_or_tails()
+        elif selection == "ch":
+            cho_han()
+        elif selection == "c":
+            deck_of_cards()
+        else:
+            print("Are you sure you want to play a game? Try picking again...")
+    elif x == "n":
+        print("You\'re leaving with {0} dollars!".format(money))
+        print("Thanks for coming to Nick\'s casino!")
+    else:
+        print("That's not a valid selection, try again!")
+        x = "y"
 
-heads_or_tails()
-cho_han()
 
-print(money)
+#heads_or_tails()
+#cho_han()
