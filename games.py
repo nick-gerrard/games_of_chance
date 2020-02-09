@@ -83,13 +83,14 @@ def deck_of_cards():
         print("You got {0}, while the other guy got {1}".format(card_one, card_two))
         if card_one > card_two:
             money += bet_int
-            print("You now have {0} dollars!".format(money))
+            print("You win! You now have {0} dollars!".format(money))
             return money
         elif card_one == card_two:
-            print("You tied! Nobody wins!")
+            print("You tied! Nobody wins! You still have {0} dollars.".format(money))
+            return money
         else:
             money -= bet_int
-            print("You now have {0} dollars!".format(money))
+            print("You lose! You now have {0} dollars!".format(money))
             return money
 
 
@@ -104,7 +105,7 @@ while x =="y":
         print("Which game?")
         print("Heads or Tails [h/t], Cho Han [ch], or Cards [c]?")
         selection = input()
-        if selection == "h/c":
+        if selection == "h/t":
             heads_or_tails()
         elif selection == "ch":
             cho_han()
