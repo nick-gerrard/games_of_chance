@@ -99,11 +99,11 @@ def deck_of_cards():
 
 x =  "y"
 while x =="y":
-    x = input("Would you like to play a game? y or n? ")
+    x = input("Would you like to play a game? y or n? \n")
     if x == "y":
-        print("You have {0} money left...".format(money))
-        print("Which game?")
-        print("Heads or Tails [h/t], Cho Han [ch], or Cards [c]?")
+        print("You have {0} money left...\n".format(money))
+        print("Which game?\n")
+        print("Heads or Tails [h/t], Cho Han [ch], or Cards [c]?\n")
         selection = input()
         if selection == "h/t":
             heads_or_tails()
