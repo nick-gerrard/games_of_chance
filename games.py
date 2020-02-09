@@ -141,7 +141,7 @@ def roulette():
                     return money
             else:
                 print("Invalid Selection. Try again!")
-                roulett()
+                roulette()
 
 
             
@@ -149,12 +149,10 @@ def roulette():
 
 
 
-roulette()
 
  
     
 #Call your game of chance functions here
-"""
 x =  "y"
 while x =="y":
     if money == 0:
@@ -165,7 +163,7 @@ while x =="y":
     if x == "y":
         print("You have {0} money left...\n".format(money))
         print("Which game?\n")
-        print("Heads or Tails [h/t], Cho Han [ch], or Cards [c]?\n")
+        print("Heads or Tails [h/t], Cho Han [ch], Cards [c]?, or Roulette [r]?\n")
         selection = input()
         if selection == "h/t":
             heads_or_tails()
@@ -173,6 +171,8 @@ while x =="y":
             cho_han()
         elif selection == "c":
             deck_of_cards()
+        elif selection == "r":
+            roulette()
         else:
             print("Are you sure you want to play a game? Try picking again...")
     elif x == "n":
@@ -181,7 +181,4 @@ while x =="y":
     else:
         print("That's not a valid selection, try again!")
         x = "y"
-"""
 
-#heads_or_tails()
-#cho_han()
