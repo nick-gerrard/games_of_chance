@@ -93,12 +93,74 @@ def deck_of_cards():
             print("You lose! You now have {0} dollars!".format(money))
             return money
 
+def roulette():
+    global money
+    bet = input("How much would you like to bet? ")
+    bet_int = int(bet)
+    if bet_int > money:
+        print("You don't have that much money to bet!")
+        deck_of_cards()
+    else:
+        wheel = [i for i in range(1,31)]
+        wheel.append(0)
+        wheel.append(00)
+        num_or_color = input("Do you want to bet on a number, or a color? \n")
+        result = random.randint(1,33)
+        if wheel[result] == 0 or wheel[result] == 00:
+            print("Oh no! The house wins!")
+            money -= bet_int
+            print("You now have {0} dollars.".format(money))
+            return money
+        else:
+            if num_or_color == "number":
+                num = input("Pick a number between 1 and 30 \n")
+                if int(num) == wheel[result]:
+                    print("You Win! You win 30 times your bet!")
+                    total_win = bet_int * 30
+                    money += total_win
+                    print("You now have {0} dollars.".format(money))
+                    return money
+                else:
+                    print("You Lose! You lose your bet.")
+                    money -= bet_int
+                    print("you now have {0} dollars.".format(money))
+                    return money
+            elif num_or_color == "color":
+                color = input("red or black?")
+                color_list = ["red", "black"]
+                resulting_color = color_list[(result % 2)]
+                if resulting_color == color:
+                    print("You Won!\n")
+                    money += bet_int
+                    print("You now have {0} dollars.".format(money))
+                    return money
+                else:
+                    print("You lose!\n")
+                    money -= bet_int
+                    print("You now have {0} dollars.".format(money))
+                    return money
+            else:
+                print("Invalid Selection. Try again!")
+                roulett()
 
+
+            
+
+
+
+
+roulette()
+
+ 
     
 #Call your game of chance functions here
-
+"""
 x =  "y"
 while x =="y":
+    if money == 0:
+        print("You don't have any money. Leave the Casino, pleb!")
+        x = "n"
+        break
     x = input("Would you like to play a game? y or n? \n")
     if x == "y":
         print("You have {0} money left...\n".format(money))
@@ -119,7 +181,7 @@ while x =="y":
     else:
         print("That's not a valid selection, try again!")
         x = "y"
-
+"""
 
 #heads_or_tails()
 #cho_han()
